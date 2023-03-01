@@ -63,6 +63,7 @@ define(["core/js/adapt", "core/js/models/componentModel"], function (
 
       this.checkRetryEnabled(state);
 
+      this._setCorrectPages(state.questions);
       this.setFeedbackText();
 
       this.toggleVisibility(true);
@@ -98,6 +99,28 @@ define(["core/js/adapt", "core/js/models/componentModel"], function (
         _isRetryEnabled: showRetry,
         retryFeedback: showRetry ? this.get("_retry").feedback : "",
       });
+    },
+
+    _setCorrectPages: function (questions) {
+      var questionsBankCollection = _.groupBy(questions, "_blockBankId");
+      var model = {
+        correctModules: [],
+        incorrectModules: [],
+      };
+      _.forEach(questionsBankCollection, function (questionResult, key) {
+        var questionIsCorrect = true;
+        _.forEach(questionResult, function (questionData) {
+          if (!questionData._isCorrect) {
+            questionIsCorrect = false;
+          }
+        });
+        if (questionIsCorrect) {
+          model.correctModules.push({ name: questionResult[0]._blockPageName.trim() } || null);
+        } else {
+          model.incorrectModules.push({ name: questionResult[0]._blockPageName.trim() } || null);
+        }
+      });
+      this.set(model);
     },
 
     setFeedbackText: function () {
