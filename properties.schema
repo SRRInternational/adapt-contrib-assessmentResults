@@ -110,6 +110,80 @@
         }
       }
     },
+    "_next": {
+      "type": "object",
+      "required": true,
+      "title": "",
+      "properties": {
+        "_isEnabled": {
+            "type": "boolean",
+            "required": true,
+            "default": true,
+            "title": "Enable Next button",
+            "inputType": {
+                "type": "Boolean",
+                "options": [
+                    false,
+                    true
+                ]
+            },
+            "validators": [],
+            "help": "Set true to shows next button."
+        },
+        "button": {
+          "type": "string",
+          "required": false,
+          "default": "Next",
+          "title": "Next",
+          "inputType": "Text",
+          "validators": [],
+          "translatable": true,
+          "help": "Text that appears on the next button."
+        },
+        "_pageId": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "title": "",
+          "inputType": "Text",
+          "validators": [],
+          "translatable": true,
+          "help": "Next page id."
+        }
+      }
+    },
+    "_exit": {
+      "type": "object",
+      "required": true,
+      "title": "",
+      "properties": {
+        "_isEnabled": {
+            "type": "boolean",
+            "required": false,
+            "default": false,
+            "title": "Enable Exit button",
+            "inputType": {
+                "type": "Boolean",
+                "options": [
+                    false,
+                    true
+                ]
+            },
+            "validators": [],
+            "help": "Set true to shows exit button."
+        },
+        "button": {
+          "type": "string",
+          "required": false,
+          "default": "Exit",
+          "title": "Exit",
+          "inputType": "Text",
+          "validators": [],
+          "translatable": true,
+          "help": "Text that appears on the exit button."
+        }
+      }
+    },
     "_completionBody": {
       "type": "string",
       "required": false,

@@ -28,11 +28,27 @@
             {{/if}}
           </span>
         </button>
-
       </div>
     </div>
     {{/if}}
-
+    <button class="btn-text assessmentresults__next-btn js-assessment-next-btn">
+      <span>
+        {{#if _next.button}}
+        {{_next.button}}
+        {{else}}
+        Next
+        {{/if}}
+      </span>
+    </button>
+    <button class="btn-text assessmentresults__exit-btn js-assessment-exit-btn">
+      <span>
+        {{#if _exit.buttonText}}
+        {{_exit.buttonText}}
+        {{else}}
+        Exit
+        {{/if}}
+      </span>
+    </button>
   </div>
 
 </div>
