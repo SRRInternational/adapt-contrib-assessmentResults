@@ -115,9 +115,9 @@ define(["core/js/adapt", "core/js/models/componentModel"], function (
           }
         });
         if (questionIsCorrect) {
-          model.correctModules.push({ name: questionResult[0]._blockPageName.trim() } || null);
+          model.correctModules.push({ name: questionResult[0]._blockPageName || null });
         } else {
-          model.incorrectModules.push({ name: questionResult[0]._blockPageName.trim() } || null);
+          model.incorrectModules.push({ name: questionResult[0]._blockPageName || null });
         }
       });
       this.set(model);
